@@ -8,14 +8,26 @@
     <Setting Name="networkindicatorY" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="networkindicatoropacity" Type="System.Byte" Scope="User">
-      <Value Profile="(Default)">200</Value>
+    <Setting Name="networkindicatoropacity" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="shownetworkindicator" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="showdragpanel" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="clickthroughindicator" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="launchonboot" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="networkindicatorbackcolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">30, 30, 30</Value>
+    </Setting>
+    <Setting Name="networkindicatorlabelcolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -32,10 +32,13 @@ namespace NetworkOverlay
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetworkOverlay));
             this.maindragpanel = new System.Windows.Forms.Panel();
+            this.hidebtn = new System.Windows.Forms.PictureBox();
+            this.titlelabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimize = new System.Windows.Forms.PictureBox();
             this.close = new System.Windows.Forms.PictureBox();
             this.shownetworkindicatortoggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.colorbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.shownetworkindicatorlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.showdragpaneltoggle = new Guna.UI2.WinForms.Guna2ToggleSwitch();
@@ -52,13 +55,17 @@ namespace NetworkOverlay
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.colorsgroupbox = new Guna.UI2.WinForms.Guna2GroupBox();
             this.setopacity = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.opacitybox = new Guna.UI2.WinForms.Guna2TextBox();
             this.opacitylabel = new System.Windows.Forms.Label();
             this.setbackcolor = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.backcolorbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SystemTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.creditslabel = new System.Windows.Forms.Label();
             this.maindragpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hidebtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             this.infocontainer.SuspendLayout();
@@ -69,6 +76,9 @@ namespace NetworkOverlay
             // maindragpanel
             // 
             this.maindragpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.maindragpanel.Controls.Add(this.hidebtn);
+            this.maindragpanel.Controls.Add(this.titlelabel);
+            this.maindragpanel.Controls.Add(this.pictureBox1);
             this.maindragpanel.Controls.Add(this.minimize);
             this.maindragpanel.Controls.Add(this.close);
             this.maindragpanel.Location = new System.Drawing.Point(-4, -1);
@@ -78,6 +88,40 @@ namespace NetworkOverlay
             this.maindragpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.maindragpanel_MouseDown);
             this.maindragpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.maindragpanel_MouseMove);
             this.maindragpanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.maindragpanel_MouseUp);
+            // 
+            // hidebtn
+            // 
+            this.hidebtn.BackColor = System.Drawing.Color.Transparent;
+            this.hidebtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hidebtn.Image = ((System.Drawing.Image)(resources.GetObject("hidebtn.Image")));
+            this.hidebtn.Location = new System.Drawing.Point(358, 3);
+            this.hidebtn.Name = "hidebtn";
+            this.hidebtn.Size = new System.Drawing.Size(25, 25);
+            this.hidebtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.hidebtn.TabIndex = 53;
+            this.hidebtn.TabStop = false;
+            this.hidebtn.Click += new System.EventHandler(this.hidebtn_Click);
+            // 
+            // titlelabel
+            // 
+            this.titlelabel.AutoSize = true;
+            this.titlelabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.titlelabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(86)))), ((int)(((byte)(164)))));
+            this.titlelabel.Location = new System.Drawing.Point(36, -2);
+            this.titlelabel.Name = "titlelabel";
+            this.titlelabel.Size = new System.Drawing.Size(167, 28);
+            this.titlelabel.TabIndex = 52;
+            this.titlelabel.Text = "NetworkOverlay";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(11, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // minimize
             // 
@@ -114,6 +158,7 @@ namespace NetworkOverlay
             this.shownetworkindicatortoggle.CheckedState.InnerBorderColor = System.Drawing.Color.Black;
             this.shownetworkindicatortoggle.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.shownetworkindicatortoggle.CheckedState.Parent = this.shownetworkindicatortoggle;
+            this.shownetworkindicatortoggle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.shownetworkindicatortoggle.Location = new System.Drawing.Point(144, 72);
             this.shownetworkindicatortoggle.Name = "shownetworkindicatortoggle";
             this.shownetworkindicatortoggle.ShadowDecoration.Parent = this.shownetworkindicatortoggle;
@@ -127,32 +172,32 @@ namespace NetworkOverlay
             this.shownetworkindicatortoggle.UseTransparentBackground = true;
             this.shownetworkindicatortoggle.CheckedChanged += new System.EventHandler(this.shownetworkindicatortoggle_CheckedChanged);
             // 
-            // guna2TextBox1
+            // colorbox
             // 
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.BorderRadius = 6;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(93, 84);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "#";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(60, 20);
-            this.guna2TextBox1.TabIndex = 2;
+            this.colorbox.Animated = true;
+            this.colorbox.BorderColor = System.Drawing.Color.Black;
+            this.colorbox.BorderRadius = 6;
+            this.colorbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.colorbox.DefaultText = "";
+            this.colorbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.colorbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.colorbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.colorbox.DisabledState.Parent = this.colorbox;
+            this.colorbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.colorbox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.colorbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.colorbox.FocusedState.Parent = this.colorbox;
+            this.colorbox.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.colorbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.colorbox.HoverState.Parent = this.colorbox;
+            this.colorbox.Location = new System.Drawing.Point(80, 83);
+            this.colorbox.Name = "colorbox";
+            this.colorbox.PasswordChar = '\0';
+            this.colorbox.PlaceholderText = "R,G,B";
+            this.colorbox.SelectedText = "";
+            this.colorbox.ShadowDecoration.Parent = this.colorbox;
+            this.colorbox.Size = new System.Drawing.Size(70, 20);
+            this.colorbox.TabIndex = 2;
             // 
             // shownetworkindicatorlabel
             // 
@@ -168,11 +213,12 @@ namespace NetworkOverlay
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(7, 86);
+            this.label1.Location = new System.Drawing.Point(12, 87);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 15);
+            this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Color";
+            this.label1.Text = "Text Color";
             // 
             // showdragpaneltoggle
             // 
@@ -184,6 +230,7 @@ namespace NetworkOverlay
             this.showdragpaneltoggle.CheckedState.InnerBorderColor = System.Drawing.Color.Black;
             this.showdragpaneltoggle.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.showdragpaneltoggle.CheckedState.Parent = this.showdragpaneltoggle;
+            this.showdragpaneltoggle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.showdragpaneltoggle.Location = new System.Drawing.Point(144, 98);
             this.showdragpaneltoggle.Name = "showdragpaneltoggle";
             this.showdragpaneltoggle.ShadowDecoration.Parent = this.showdragpaneltoggle;
@@ -238,6 +285,7 @@ namespace NetworkOverlay
             this.setcolor.Size = new System.Drawing.Size(38, 20);
             this.setcolor.TabIndex = 21;
             this.setcolor.UseTransparentBackground = true;
+            this.setcolor.Click += new System.EventHandler(this.setcolor_Click);
             // 
             // coordX
             // 
@@ -347,6 +395,7 @@ namespace NetworkOverlay
             this.clickthroughtoggle.CheckedState.InnerBorderColor = System.Drawing.Color.Black;
             this.clickthroughtoggle.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.clickthroughtoggle.CheckedState.Parent = this.clickthroughtoggle;
+            this.clickthroughtoggle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clickthroughtoggle.Location = new System.Drawing.Point(144, 124);
             this.clickthroughtoggle.Name = "clickthroughtoggle";
             this.clickthroughtoggle.ShadowDecoration.Parent = this.clickthroughtoggle;
@@ -358,6 +407,7 @@ namespace NetworkOverlay
             this.clickthroughtoggle.UncheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.clickthroughtoggle.UncheckedState.Parent = this.clickthroughtoggle;
             this.clickthroughtoggle.UseTransparentBackground = true;
+            this.clickthroughtoggle.CheckedChanged += new System.EventHandler(this.clickthroughtoggle_CheckedChanged);
             // 
             // infocontainer
             // 
@@ -376,7 +426,8 @@ namespace NetworkOverlay
             this.infocontainer.Size = new System.Drawing.Size(187, 133);
             this.infocontainer.TabIndex = 49;
             this.infocontainer.Text = "Toggles";
-            this.infocontainer.TextOffset = new System.Drawing.Point(55, -8);
+            this.infocontainer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.infocontainer.TextOffset = new System.Drawing.Point(0, -8);
             // 
             // bootlaunchtoggle
             // 
@@ -387,6 +438,7 @@ namespace NetworkOverlay
             this.bootlaunchtoggle.CheckedState.InnerBorderColor = System.Drawing.Color.Black;
             this.bootlaunchtoggle.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.bootlaunchtoggle.CheckedState.Parent = this.bootlaunchtoggle;
+            this.bootlaunchtoggle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bootlaunchtoggle.Location = new System.Drawing.Point(135, 107);
             this.bootlaunchtoggle.Name = "bootlaunchtoggle";
             this.bootlaunchtoggle.ShadowDecoration.Parent = this.bootlaunchtoggle;
@@ -398,6 +450,7 @@ namespace NetworkOverlay
             this.bootlaunchtoggle.UncheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.bootlaunchtoggle.UncheckedState.Parent = this.bootlaunchtoggle;
             this.bootlaunchtoggle.UseTransparentBackground = true;
+            this.bootlaunchtoggle.CheckedChanged += new System.EventHandler(this.bootlaunchtoggle_CheckedChanged);
             // 
             // label4
             // 
@@ -427,33 +480,35 @@ namespace NetworkOverlay
             this.guna2GroupBox1.Size = new System.Drawing.Size(167, 60);
             this.guna2GroupBox1.TabIndex = 50;
             this.guna2GroupBox1.Text = "Position";
-            this.guna2GroupBox1.TextOffset = new System.Drawing.Point(50, -8);
+            this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guna2GroupBox1.TextOffset = new System.Drawing.Point(0, -8);
             // 
             // colorsgroupbox
             // 
             this.colorsgroupbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.colorsgroupbox.BorderRadius = 8;
             this.colorsgroupbox.Controls.Add(this.setopacity);
-            this.colorsgroupbox.Controls.Add(this.guna2TextBox3);
+            this.colorsgroupbox.Controls.Add(this.opacitybox);
             this.colorsgroupbox.Controls.Add(this.setcolor);
             this.colorsgroupbox.Controls.Add(this.opacitylabel);
             this.colorsgroupbox.Controls.Add(this.setbackcolor);
-            this.colorsgroupbox.Controls.Add(this.guna2TextBox2);
+            this.colorsgroupbox.Controls.Add(this.backcolorbox);
             this.colorsgroupbox.Controls.Add(this.label1);
             this.colorsgroupbox.Controls.Add(this.label3);
-            this.colorsgroupbox.Controls.Add(this.guna2TextBox1);
+            this.colorsgroupbox.Controls.Add(this.colorbox);
             this.colorsgroupbox.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.colorsgroupbox.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.colorsgroupbox.FillColor = System.Drawing.Color.Transparent;
             this.colorsgroupbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.colorsgroupbox.ForeColor = System.Drawing.Color.White;
-            this.colorsgroupbox.Location = new System.Drawing.Point(234, 174);
+            this.colorsgroupbox.Location = new System.Drawing.Point(234, 173);
             this.colorsgroupbox.Name = "colorsgroupbox";
             this.colorsgroupbox.ShadowDecoration.Parent = this.colorsgroupbox;
             this.colorsgroupbox.Size = new System.Drawing.Size(204, 114);
             this.colorsgroupbox.TabIndex = 51;
             this.colorsgroupbox.Text = "Style";
-            this.colorsgroupbox.TextOffset = new System.Drawing.Point(73, -8);
+            this.colorsgroupbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colorsgroupbox.TextOffset = new System.Drawing.Point(0, -8);
             // 
             // setopacity
             // 
@@ -486,39 +541,41 @@ namespace NetworkOverlay
             this.setopacity.Size = new System.Drawing.Size(38, 20);
             this.setopacity.TabIndex = 52;
             this.setopacity.UseTransparentBackground = true;
+            this.setopacity.Click += new System.EventHandler(this.setopacity_Click);
             // 
-            // guna2TextBox3
+            // opacitybox
             // 
-            this.guna2TextBox3.Animated = true;
-            this.guna2TextBox3.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.BorderRadius = 6;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.FocusedState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Location = new System.Drawing.Point(93, 32);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "0-255";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.ShadowDecoration.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Size = new System.Drawing.Size(60, 20);
-            this.guna2TextBox3.TabIndex = 53;
+            this.opacitybox.Animated = true;
+            this.opacitybox.BorderColor = System.Drawing.Color.Black;
+            this.opacitybox.BorderRadius = 6;
+            this.opacitybox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.opacitybox.DefaultText = "";
+            this.opacitybox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.opacitybox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.opacitybox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.opacitybox.DisabledState.Parent = this.opacitybox;
+            this.opacitybox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.opacitybox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.opacitybox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.opacitybox.FocusedState.Parent = this.opacitybox;
+            this.opacitybox.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.opacitybox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.opacitybox.HoverState.Parent = this.opacitybox;
+            this.opacitybox.Location = new System.Drawing.Point(80, 31);
+            this.opacitybox.Name = "opacitybox";
+            this.opacitybox.PasswordChar = '\0';
+            this.opacitybox.PlaceholderText = "0 - 1";
+            this.opacitybox.SelectedText = "";
+            this.opacitybox.ShadowDecoration.Parent = this.opacitybox;
+            this.opacitybox.Size = new System.Drawing.Size(70, 20);
+            this.opacitybox.TabIndex = 53;
             // 
             // opacitylabel
             // 
             this.opacitylabel.AutoSize = true;
             this.opacitylabel.ForeColor = System.Drawing.Color.White;
-            this.opacitylabel.Location = new System.Drawing.Point(7, 37);
+            this.opacitylabel.Location = new System.Drawing.Point(13, 35);
+            this.opacitylabel.Margin = new System.Windows.Forms.Padding(0);
             this.opacitylabel.Name = "opacitylabel";
             this.opacitylabel.Size = new System.Drawing.Size(48, 15);
             this.opacitylabel.TabIndex = 52;
@@ -555,44 +612,46 @@ namespace NetworkOverlay
             this.setbackcolor.Size = new System.Drawing.Size(38, 20);
             this.setbackcolor.TabIndex = 52;
             this.setbackcolor.UseTransparentBackground = true;
+            this.setbackcolor.Click += new System.EventHandler(this.setbackcolor_Click);
             // 
-            // guna2TextBox2
+            // backcolorbox
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.BorderRadius = 6;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(93, 58);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "#";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(60, 20);
-            this.guna2TextBox2.TabIndex = 52;
+            this.backcolorbox.Animated = true;
+            this.backcolorbox.BorderColor = System.Drawing.Color.Black;
+            this.backcolorbox.BorderRadius = 6;
+            this.backcolorbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.backcolorbox.DefaultText = "";
+            this.backcolorbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.backcolorbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.backcolorbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.backcolorbox.DisabledState.Parent = this.backcolorbox;
+            this.backcolorbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.backcolorbox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.backcolorbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.backcolorbox.FocusedState.Parent = this.backcolorbox;
+            this.backcolorbox.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.backcolorbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.backcolorbox.HoverState.Parent = this.backcolorbox;
+            this.backcolorbox.Location = new System.Drawing.Point(80, 57);
+            this.backcolorbox.Name = "backcolorbox";
+            this.backcolorbox.PasswordChar = '\0';
+            this.backcolorbox.PlaceholderText = "R,G,B";
+            this.backcolorbox.SelectedText = "";
+            this.backcolorbox.ShadowDecoration.Parent = this.backcolorbox;
+            this.backcolorbox.Size = new System.Drawing.Size(70, 20);
+            this.backcolorbox.TabIndex = 52;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 64);
+            this.label3.Location = new System.Drawing.Point(10, 62);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 52;
-            this.label3.Text = " BackColor";
+            this.label3.Text = " Back Color";
             // 
             // SystemTrayIcon
             // 
@@ -602,6 +661,30 @@ namespace NetworkOverlay
             this.SystemTrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("SystemTrayIcon.Icon")));
             this.SystemTrayIcon.Text = "NetworkOverlay";
             this.SystemTrayIcon.Visible = true;
+            this.SystemTrayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SystemTrayIcon_MouseDoubleClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(4, 279);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 15);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "v0.1";
+            // 
+            // creditslabel
+            // 
+            this.creditslabel.AutoSize = true;
+            this.creditslabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Underline);
+            this.creditslabel.ForeColor = System.Drawing.Color.White;
+            this.creditslabel.Location = new System.Drawing.Point(31, 279);
+            this.creditslabel.Name = "creditslabel";
+            this.creditslabel.Size = new System.Drawing.Size(49, 13);
+            this.creditslabel.TabIndex = 53;
+            this.creditslabel.Text = "[Credits]";
+            this.creditslabel.Click += new System.EventHandler(this.creditslabel_Click);
             // 
             // NetworkOverlay
             // 
@@ -609,6 +692,8 @@ namespace NetworkOverlay
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(450, 300);
+            this.Controls.Add(this.creditslabel);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.clickthroughtoggle);
             this.Controls.Add(this.makeindicatorclickthroughlabel);
             this.Controls.Add(this.label2);
@@ -619,10 +704,15 @@ namespace NetworkOverlay
             this.Controls.Add(this.infocontainer);
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.colorsgroupbox);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NetworkOverlay";
             this.Text = "Network Overlay";
             this.maindragpanel.ResumeLayout(false);
+            this.maindragpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hidebtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             this.infocontainer.ResumeLayout(false);
@@ -641,7 +731,7 @@ namespace NetworkOverlay
         private System.Windows.Forms.PictureBox minimize;
         private System.Windows.Forms.PictureBox close;
         private Guna.UI2.WinForms.Guna2ToggleSwitch shownetworkindicatortoggle;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox colorbox;
         private System.Windows.Forms.Label shownetworkindicatorlabel;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ToggleSwitch showdragpaneltoggle;
@@ -656,14 +746,19 @@ namespace NetworkOverlay
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2GroupBox colorsgroupbox;
         private Guna.UI2.WinForms.Guna2Button setopacity;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Guna.UI2.WinForms.Guna2TextBox opacitybox;
         private System.Windows.Forms.Label opacitylabel;
         private Guna.UI2.WinForms.Guna2Button setbackcolor;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox backcolorbox;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2ToggleSwitch bootlaunchtoggle;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NotifyIcon SystemTrayIcon;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label titlelabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox hidebtn;
+        private System.Windows.Forms.Label creditslabel;
     }
 }
 

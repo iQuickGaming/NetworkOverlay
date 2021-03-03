@@ -30,6 +30,7 @@ namespace NetworkOverlay
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetworkIndicator));
             this.downloadlabel = new System.Windows.Forms.Label();
             this.uploadlabel = new System.Windows.Forms.Label();
             this.uploadvalue = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@ namespace NetworkOverlay
             this.downloadlabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.downloadlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadlabel.ForeColor = System.Drawing.Color.White;
-            this.downloadlabel.Location = new System.Drawing.Point(11, 4);
+            this.downloadlabel.Location = new System.Drawing.Point(7, 4);
             this.downloadlabel.Margin = new System.Windows.Forms.Padding(0);
             this.downloadlabel.Name = "downloadlabel";
             this.downloadlabel.Size = new System.Drawing.Size(74, 16);
@@ -58,7 +59,7 @@ namespace NetworkOverlay
             this.uploadlabel.BackColor = System.Drawing.Color.Transparent;
             this.uploadlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadlabel.ForeColor = System.Drawing.Color.White;
-            this.uploadlabel.Location = new System.Drawing.Point(11, 20);
+            this.uploadlabel.Location = new System.Drawing.Point(7, 20);
             this.uploadlabel.Margin = new System.Windows.Forms.Padding(0);
             this.uploadlabel.Name = "uploadlabel";
             this.uploadlabel.Size = new System.Drawing.Size(74, 16);
@@ -70,24 +71,24 @@ namespace NetworkOverlay
             this.uploadvalue.AutoSize = true;
             this.uploadvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadvalue.ForeColor = System.Drawing.Color.White;
-            this.uploadvalue.Location = new System.Drawing.Point(84, 21);
+            this.uploadvalue.Location = new System.Drawing.Point(80, 21);
             this.uploadvalue.Margin = new System.Windows.Forms.Padding(0);
             this.uploadvalue.Name = "uploadvalue";
             this.uploadvalue.Size = new System.Drawing.Size(66, 16);
             this.uploadvalue.TabIndex = 4;
-            this.uploadvalue.Text = "0.00Mbps";
+            this.uploadvalue.Text = "0.00 MB/s";
             // 
             // downloadvalue
             // 
             this.downloadvalue.AutoSize = true;
             this.downloadvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadvalue.ForeColor = System.Drawing.Color.White;
-            this.downloadvalue.Location = new System.Drawing.Point(83, 5);
+            this.downloadvalue.Location = new System.Drawing.Point(79, 5);
             this.downloadvalue.Margin = new System.Windows.Forms.Padding(0);
             this.downloadvalue.Name = "downloadvalue";
-            this.downloadvalue.Size = new System.Drawing.Size(69, 16);
+            this.downloadvalue.Size = new System.Drawing.Size(66, 16);
             this.downloadvalue.TabIndex = 5;
-            this.downloadvalue.Text = "0.00 Mbps";
+            this.downloadvalue.Text = "0.00 MB/s";
             // 
             // StatsRefresh
             // 
@@ -110,15 +111,18 @@ namespace NetworkOverlay
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(150, 40);
+            this.ClientSize = new System.Drawing.Size(160, 40);
             this.Controls.Add(this.downloadvalue);
             this.Controls.Add(this.uploadvalue);
             this.Controls.Add(this.dragpanel);
             this.Controls.Add(this.uploadlabel);
             this.Controls.Add(this.downloadlabel);
-            this.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NetworkIndicator";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NetworkIndicator";
             this.TopMost = true;
@@ -128,12 +132,11 @@ namespace NetworkOverlay
         }
 
         #endregion
-
-        private System.Windows.Forms.Label downloadlabel;
-        private System.Windows.Forms.Label uploadlabel;
-        private System.Windows.Forms.Label uploadvalue;
-        private System.Windows.Forms.Label downloadvalue;
         internal System.Windows.Forms.Timer StatsRefresh;
         public System.Windows.Forms.Panel dragpanel;
+        internal System.Windows.Forms.Label downloadlabel;
+        internal System.Windows.Forms.Label uploadlabel;
+        internal System.Windows.Forms.Label uploadvalue;
+        internal System.Windows.Forms.Label downloadvalue;
     }
 }

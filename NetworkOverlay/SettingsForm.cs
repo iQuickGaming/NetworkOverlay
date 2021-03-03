@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetworkOverlay
@@ -15,18 +9,10 @@ namespace NetworkOverlay
     {
 
        internal Form NetworkIndicator = new NetworkIndicator();
+       internal Form Credits = new Credits();
 
         [DllImport("Gdi32.dll")]
-        internal static extern IntPtr CreateRoundRectRgn
-(
-    int nLeftRect,     // x-coordinate of upper-left corner
-    int nTopRect,      // y-coordinate of upper-left corner
-    int nRightRect,    // x-coordinate of lower-right corner
-    int nBottomRect,   // y-coordinate of lower-right corner
-    int nWidthEllipse, // height of ellipse
-    int nHeightEllipse // width of ellipse
-);
-
+        internal static extern IntPtr CreateRoundRectRgn ( int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse );
 
         public NetworkOverlay()
         {
@@ -39,6 +25,10 @@ namespace NetworkOverlay
             NetworkIndicator.Location = new Point(Properties.Settings.Default.networkindicatorX, Properties.Settings.Default.networkindicatorY);
             showdragpaneltoggle.Checked = Properties.Settings.Default.showdragpanel;
             SystemTrayIcon.Visible = true;
+            NetworkIndicator.Opacity = Properties.Settings.Default.networkindicatoropacity;
+            clickthroughtoggle.Checked = Properties.Settings.Default.clickthroughindicator;
+            bootlaunchtoggle.Checked = Properties.Settings.Default.launchonboot;
+            opacitybox.Text = Properties.Settings.Default.networkindicatoropacity.ToString();
         }
 
 
@@ -98,6 +88,69 @@ namespace NetworkOverlay
             else
                 Properties.Settings.Default.showdragpanel = true;
             Properties.Settings.Default.Save();
+        }
+
+        private void setopacity_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.networkindicatoropacity = double.Parse(opacitybox.Text.ToString());
+            Properties.Settings.Default.Save();
+            NetworkIndicator.Opacity = double.Parse(opacitybox.Text.ToString());
+            MessageBox.Show("To change this property a restart is required","Restart Required");
+        }
+
+        private void clickthroughtoggle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (clickthroughtoggle.Checked == false)
+                Properties.Settings.Default.clickthroughindicator = false;
+            else
+                Properties.Settings.Default.clickthroughindicator = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void bootlaunchtoggle_CheckedChanged(object sender, EventArgs e)
+        {
+            Microsoft.Win32.RegistryKey startonbootkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            if (bootlaunchtoggle.Checked == false)
+            {
+                Properties.Settings.Default.launchonboot = false;
+                Properties.Settings.Default.Save();
+                startonbootkey.DeleteValue("NetworkOverlay", false);
+            }
+            else
+            {
+                Properties.Settings.Default.launchonboot = true;
+                Properties.Settings.Default.Save();
+                startonbootkey.SetValue("NetworkOverlay", Application.ExecutablePath.ToString());
+            }
+        }
+
+        private void setbackcolor_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.networkindicatorbackcolor = ColorTranslator.FromHtml(backcolorbox.Text);
+            Properties.Settings.Default.Save();
+            NetworkIndicator.BackColor = ColorTranslator.FromHtml(backcolorbox.Text);
+        }
+
+        private void setcolor_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.networkindicatorlabelcolor = ColorTranslator.FromHtml(colorbox.Text);
+            Properties.Settings.Default.Save();
+        }
+
+        private void SystemTrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+        }
+
+        private void hidebtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void creditslabel_Click(object sender, EventArgs e)
+        {
+            Credits.Show();
         }
     }
 }
